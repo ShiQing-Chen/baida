@@ -10,18 +10,42 @@ import java.sql.Timestamp;
  * @date 2018/11/26 12:01
  */
 
+/** 活动 */
 @Entity
 public class Activity {
+
+
+    /** 活动id */
     private String id;
+
+    /** 店铺id */
     private String shopId;
+
+    /** 活动类型 0为平台活动 1位商铺活动 默认0*/
     private Integer activityType;
+
+    /** 活动标题 */
     private String activityTitle;
+
+    /** 活动状态  1为上线 0位下线 默认0*/
     private Integer activityStatus;
+
+    /** 开始时间 */
     private Timestamp startTime;
+
+    /** 结束时间 */
     private Timestamp endTime;
+
+    /** 活动描述 */
     private String activityDesc;
+
+    /** 活动logo */
     private String activityPath;
+
+    /** 创建时间 */
     private Timestamp createTime;
+
+    /** 修改时间 */
     private Timestamp updateTime;
 
     @Id
