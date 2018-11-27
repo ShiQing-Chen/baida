@@ -39,7 +39,7 @@
                             <li><a href="profile.html">个人信息</a></li>
                             <li><a href="contacts.html">修改密码</a></li>
                             <li class="divider"></li>
-                            <li><a href="login">Logout</a></li>
+                            <li><a href="login">退出登录</a></li>
                         </ul>
                     </div>
                     <div class="logo-element">
@@ -80,7 +80,7 @@
         <div class="row border-bottom">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
-                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="index.html#"><i class="fa fa-bars"></i> </a>
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " id="btnMenu"><i class="fa fa-bars"></i> </a>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
@@ -1567,6 +1567,10 @@
             "New row" ] );
 
     }
+
+    $("#btnMenu").click(function () {
+        $("body").removeClass("class");
+    });
 </script>
 
 </body>

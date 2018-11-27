@@ -37,7 +37,8 @@
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Admin</strong>
-                             </span> <span class="text-muted text-xs block">管理员<b class="caret"></b></span> </span> </a>
+                             </span> <span class="text-muted text-xs block">管理员<b class="caret"></b></span> </span>
+                        </a>
                         <!--用户选项-->
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a href="profile.html">个人信息</a></li>
@@ -75,7 +76,6 @@
                     </ul>
                 </li>
             </ul>
-
         </div>
     </nav>
 
@@ -85,7 +85,7 @@
         <div class="row border-bottom">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
-                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="index.html#"><i class="fa fa-bars"></i> </a>
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " id="btnMenu" name="btnMenu"><i class="fa fa-bars"></i> </a>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
@@ -98,7 +98,6 @@
                         </a>
                     </li>
                 </ul>
-
             </nav>
         </div>
 
@@ -198,7 +197,6 @@
                             </tbody>
                         </table>
                     </div>
-
                 </div>
 
                 <!--第二排模块-->
@@ -253,10 +251,8 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="table-responsive">
                                     <table class="table table-striped">
-
                                         <tbody>
                                         <tr>
                                             <td>1</td>
@@ -427,7 +423,7 @@
 <script type="text/javascript" th:src="@{~/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
 
 <!-- Flot -->
-<script type="text/javascript" th:src="@{../js/plugins/flot/jquery.flot.js}"></script>
+<script type="text/javascript" th:src="@{~/js/plugins/flot/jquery.flot.js}"></script>
 <script type="text/javascript" th:src="@{~/js/plugins/flot/jquery.flot.tooltip.min.js}"></script>
 <script type="text/javascript" th:src="@{~/js/plugins/flot/jquery.flot.spline.js}"></script>
 <script type="text/javascript" th:src="@{~/js/plugins/flot/jquery.flot.resize.js}"></script>
@@ -471,6 +467,8 @@
             toastr.success('Responsive Admin Theme', 'Welcome to Baida');
 
         }, 1300);
+
+
 
         var sparklineCharts = function(){
             $("#sparkline1").sparkline([34, 43, 43, 35, 44, 32, 44, 52], {
@@ -550,81 +548,9 @@
                 tooltip: false
             }
         );
-
-        var doughnutData = [
-            {
-                value: 300,
-                color: "#a3e1d4",
-                highlight: "#1ab394",
-                label: "App"
-            },
-            {
-                value: 50,
-                color: "#dedede",
-                highlight: "#1ab394",
-                label: "Software"
-            },
-            {
-                value: 100,
-                color: "#A4CEE8",
-                highlight: "#1ab394",
-                label: "Laptop"
-            }
-        ];
-
-        var doughnutOptions = {
-            segmentShowStroke: true,
-            segmentStrokeColor: "#fff",
-            segmentStrokeWidth: 2,
-            percentageInnerCutout: 45, // This is 0 for Pie charts
-            animationSteps: 100,
-            animationEasing: "easeOutBounce",
-            animateRotate: true,
-            animateScale: false
-        };
-
-        var ctx = document.getElementById("doughnutChart").getContext("2d");
-        var DoughnutChart = new Chart(ctx).Doughnut(doughnutData, doughnutOptions);
-
-        var polarData = [
-            {
-                value: 300,
-                color: "#a3e1d4",
-                highlight: "#1ab394",
-                label: "App"
-            },
-            {
-                value: 140,
-                color: "#dedede",
-                highlight: "#1ab394",
-                label: "Software"
-            },
-            {
-                value: 200,
-                color: "#A4CEE8",
-                highlight: "#1ab394",
-                label: "Laptop"
-            }
-        ];
-
-        var polarOptions = {
-            scaleShowLabelBackdrop: true,
-            scaleBackdropColor: "rgba(255,255,255,0.75)",
-            scaleBeginAtZero: true,
-            scaleBackdropPaddingY: 1,
-            scaleBackdropPaddingX: 1,
-            scaleShowLine: true,
-            segmentShowStroke: true,
-            segmentStrokeColor: "#fff",
-            segmentStrokeWidth: 2,
-            animationSteps: 100,
-            animationEasing: "easeOutBounce",
-            animateRotate: true,
-            animateScale: false
-        };
-        var ctx = document.getElementById("polarChart").getContext("2d");
-        var Polarchart = new Chart(ctx).PolarArea(polarData, polarOptions);
-
+    });
+    $("#btnMenu").click(function () {
+        $("body").removeClass("class");
     });
 </script>
 <script>
