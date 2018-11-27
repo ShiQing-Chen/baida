@@ -10,15 +10,32 @@ import java.sql.Timestamp;
  * @date 2018/11/26 12:01
  */
 
+/** 菜单类别表 */
 @Entity
 public class Goodsclass {
+
+    /** 菜单类别id */
     private String id;
+
+    /** 店铺id */
     private String shopId;
+
+    /** 类型名称 */
     private String className;
+
+    /** 类别状态  1为使用 0为不使用 默认1*/
     private Integer classStatus;
+
+    /** 类别顺序 */
     private Integer classNum;
+
+    /** 类别描述 */
     private String classDesc;
+
+    /** 创建时间 */
     private Timestamp createTime;
+
+    /** 修改时间 */
     private Timestamp updateTime;
 
     @Id
