@@ -413,6 +413,15 @@
                 <strong>Copyright</strong> Baida Company &copy; 2018-2019
             </div>
         </div>
+
+        <!--回滚顶部-->
+        <div id="small-chat">
+            <!--<span class="badge badge-warning pull-right">5</span>-->
+            <a class="open-small-chat" id="btnTop">
+                <i class="fa fa-arrow-up" id="btnTopimg"></i>
+            </a>
+        </div>
+
     </div>
 </div>
 
@@ -548,6 +557,19 @@
                 tooltip: false
             }
         );
+    });
+
+    $("#btnTop").click(function () {
+
+
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+
+        // if ($("#btnTopimg").hasClass("fa-comments fa-remove")){
+        //     $("#btnTopimg").addClass("fa fa-arrow-up");
+        // }else if ($("#btnTopimg").hasClass("fa fa-arrow-up fa-comments fa-remove")) {
+        //     $("#btnTopimg").addClass("fa fa-arrow-up");
+        // }
+        // // $(".fa fa-arrow-up").removeClass("fa fa-arrow-up fa-comments fa-remove").addClass("fa fa-arrow-up");
     });
     $("#btnMenu").click(function () {
         $("body").removeClass("class");
