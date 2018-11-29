@@ -130,6 +130,9 @@
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
                                 </a>
+                                <a id="btnUndoAddress">
+                                    <i class="fa fa-undo"></i>
+                                </a>
                                 <a class="close-link">
                                     <i class="fa fa-times"></i>
                                 </a>
@@ -632,19 +635,16 @@
         });
     });
 
-    function fnClickAddRow() {
-        $('#editable').dataTable().fnAddData( [
-            "Custom row",
-            "New row",
-            "New row",
-            "New row",
-            "New row" ] );
-
-    }
 
     $("#btnMenu").click(function () {
         $("body").removeClass("class");
     });
+
+    //  刷新地址列表
+    $("#btnUndoAddress").click(function () {
+
+    });
+
 </script>
 
 </body>
