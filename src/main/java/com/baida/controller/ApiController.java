@@ -3,11 +3,15 @@ package com.baida.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.security.auth.login.LoginContext;
+import javax.servlet.http.HttpServletRequest;
 
 
 /**
@@ -33,7 +37,8 @@ public class ApiController {
      * @return
      */
     @RequestMapping(value = "/")
-    public String helloSpringBootGet(ModelMap modelMap){
+    public String helloSpringBootGet(ModelMap modelMap, HttpServletRequest request){
+        logger.debug(request.getRequestURL().toString());
         modelMap.addAttribute("name","helllo");
         ModelAndView modelAndView = new ModelAndView("index");
 
