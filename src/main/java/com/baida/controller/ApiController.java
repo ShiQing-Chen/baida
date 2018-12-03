@@ -1,17 +1,22 @@
 package com.baida.controller;
 
+import com.baida.common.pager.PagerList;
+import com.baida.model.Shop;
+import com.baida.service.ShopService;
+import com.baida.utils.DateUtils;
+import com.baida.vo.MessageVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.http.HttpRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.security.auth.login.LoginContext;
+
 import javax.servlet.http.HttpServletRequest;
+
 
 
 /**
@@ -20,17 +25,43 @@ import javax.servlet.http.HttpServletRequest;
  * @date 2018/11/13 22:10
  */
 
-@EnableAutoConfiguration //加上后dao不会报错
+//@EnableAutoConfiguration //加上后dao不会报错
 @Controller
 public class ApiController {
 
     private static final Logger logger = LoggerFactory.getLogger(ApiController.class);
+
+    @Autowired
+    ShopService shopService;
 
     /**
      *
      * RESTful接口
      *
      */
+
+    /**
+     *
+     * 测试
+     *
+     */
+    @RequestMapping(value = "/test")
+    public ModelAndView helloSpringBootTEXT(HttpServletRequest request){
+        ModelAndView modelAndView = new ModelAndView("login");
+        logger.debug(request.getRequestURL().toString());
+        PagerList<Shop> ss = shopService.getListByPage(1,true);
+
+        modelAndView.addObject("hello2",ss.getDataList().toString());
+        System.out.println(ss.getDataList().toString());
+        System.out.println(DateUtils.getNowTimestamp().toString());
+        Shop shop = new Shop();
+        shop.setShopName("qq");
+        MessageVo messageVo= shopService.addShop(shop);
+        System.out.println(messageVo.isSuccess());
+        System.out.println(messageVo.getMessage());
+        return modelAndView;
+    }
+
 
     /**
      * Get 1/List

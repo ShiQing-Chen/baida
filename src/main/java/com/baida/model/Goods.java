@@ -228,4 +228,23 @@ public class Goods {
         result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "id='" + id + '\'' +
+                ", shopId='" + shopId + '\'' +
+                ", classId='" + classId + '\'' +
+                ", goodsName='" + goodsName + '\'' +
+                ", goodsPrice=" + goodsPrice +
+                ", goodsStatus=" + goodsStatus +
+                ", goodsDesc='" + goodsDesc + '\'' +
+                ", goodsHeat=" + goodsHeat +
+                ", goodsPath='" + goodsPath + '\'' +
+                ", isDiscount=" + isDiscount +
+                ", goodsDiscount=" + goodsDiscount +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

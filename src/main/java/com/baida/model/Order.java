@@ -345,4 +345,34 @@ public class Order {
         result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id='" + id + '\'' +
+                ", userId='" + userId + '\'' +
+                ", manId='" + manId + '\'' +
+                ", addressId='" + addressId + '\'' +
+                ", orderName='" + orderName + '\'' +
+                ", placeTime=" + placeTime +
+                ", takingTime=" + takingTime +
+                ", finishTime=" + finishTime +
+                ", orderType=" + orderType +
+                ", orderStatus=" + orderStatus +
+                ", receiverInfo='" + receiverInfo + '\'' +
+                ", receiverPhone='" + receiverPhone + '\'' +
+                ", orderAddress='" + orderAddress + '\'' +
+                ", orderTotal=" + orderTotal +
+                ", realTotal=" + realTotal +
+                ", payWay=" + payWay +
+                ", orderIsdiscount=" + orderIsdiscount +
+                ", orderDiscount=" + orderDiscount +
+                ", sendCost=" + sendCost +
+                ", boxCost=" + boxCost +
+                ", orderDesc='" + orderDesc + '\'' +
+                ", orderText='" + orderText + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

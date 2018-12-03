@@ -189,4 +189,22 @@ public class Address {
         result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id='" + id + '\'' +
+                ", userId='" + userId + '\'' +
+                ", orderId='" + orderId + '\'' +
+                ", addressProvince='" + addressProvince + '\'' +
+                ", addressCity='" + addressCity + '\'' +
+                ", addressXian='" + addressXian + '\'' +
+                ", addresssTreet='" + addresssTreet + '\'' +
+                ", addresssDetail='" + addresssDetail + '\'' +
+                ", longitude='" + longitude + '\'' +
+                ", latitude='" + latitude + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

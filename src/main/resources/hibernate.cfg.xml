@@ -15,6 +15,7 @@
       <mapping class="com.baida.model.Orderitem"/>
       <mapping class="com.baida.model.Shop"/>
       <mapping class="com.baida.model.User"/>
+      <mapping class="com.baida.model.Admin"/>
       <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 

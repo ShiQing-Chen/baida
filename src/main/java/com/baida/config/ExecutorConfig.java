@@ -24,7 +24,7 @@ public class ExecutorConfig {
     @Bean("taskExecutor")
     public Executor taskExecutor() {
 
-        logger.info("start taskExecutor");
+        logger.info("**********start taskExecutor**********");
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         //配置核心线程数
         //线程池维护线程的最少数量

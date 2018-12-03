@@ -202,4 +202,21 @@ public class Activity {
         result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Activity{" +
+                "id='" + id + '\'' +
+                ", shopId='" + shopId + '\'' +
+                ", activityType=" + activityType +
+                ", activityTitle='" + activityTitle + '\'' +
+                ", activityStatus=" + activityStatus +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", activityDesc='" + activityDesc + '\'' +
+                ", activityPath='" + activityPath + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

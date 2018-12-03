@@ -174,4 +174,21 @@ public class Horseman {
         result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Horseman{" +
+                "id='" + id + '\'' +
+                ", manName='" + manName + '\'' +
+                ", manStatus=" + manStatus +
+                ", manPhone='" + manPhone + '\'' +
+                ", takeoutNum=" + takeoutNum +
+                ", manMoney=" + manMoney +
+                ", manDesc=" + manDesc +
+                ", manUser='" + manUser + '\'' +
+                ", manPassword='" + manPassword + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

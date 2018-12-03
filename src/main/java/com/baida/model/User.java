@@ -197,4 +197,21 @@ public class User {
         result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", openid='" + openid + '\'' +
+                ", unionid='" + unionid + '\'' +
+                ", addressId='" + addressId + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userAddress='" + userAddress + '\'' +
+                ", userStatus=" + userStatus +
+                ", userDesc='" + userDesc + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

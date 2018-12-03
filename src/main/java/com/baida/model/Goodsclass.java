@@ -151,4 +151,18 @@ public class Goodsclass {
         result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Goodsclass{" +
+                "id='" + id + '\'' +
+                ", shopId='" + shopId + '\'' +
+                ", className='" + className + '\'' +
+                ", classStatus=" + classStatus +
+                ", classNum=" + classNum +
+                ", classDesc='" + classDesc + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

@@ -30,7 +30,7 @@
                 <!-- 归档每天的文件 -->
                 <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
                 <!-- 限制单个文件大小 -->
-                <!--<SizeBasedTriggeringPolicy size="100 MB"/>-->
+                <SizeBasedTriggeringPolicy size="100 MB"/>
             </Policies>
         </RollingFile>
 

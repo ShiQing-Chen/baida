@@ -13,6 +13,8 @@ public class BaidaApplication {
 		Logger logger = LoggerFactory.getLogger(BaidaApplication.class);
 
 		SpringApplication.run(BaidaApplication.class, args);
+
+		logger.info("Address: http://localhost:8888/");
 		logger.info("......启动完毕......");
 	}
 }

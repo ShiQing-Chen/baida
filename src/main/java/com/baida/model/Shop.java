@@ -273,4 +273,26 @@ public class Shop {
         result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "id='" + id + '\'' +
+                ", shopName='" + shopName + '\'' +
+                ", shopAddress='" + shopAddress + '\'' +
+                ", shopPath='" + shopPath + '\'' +
+                ", shopStatus=" + shopStatus +
+                ", shopDesc='" + shopDesc + '\'' +
+                ", shopPhone='" + shopPhone + '\'' +
+                ", startFee=" + startFee +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", shopActivity='" + shopActivity + '\'' +
+                ", shopHeat=" + shopHeat +
+                ", longitude=" + longitude +
+                ", latitude=" + latitude +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

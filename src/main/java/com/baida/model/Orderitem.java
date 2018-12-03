@@ -121,4 +121,17 @@ public class Orderitem {
         result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Orderitem{" +
+                "id='" + id + '\'' +
+                ", orderId='" + orderId + '\'' +
+                ", goodsId='" + goodsId + '\'' +
+                ", goodsNum=" + goodsNum +
+                ", goodsPrice=" + goodsPrice +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }
