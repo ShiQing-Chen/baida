@@ -8,6 +8,8 @@ import com.baida.vo.MessageVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,6 +18,7 @@ import java.util.List;
  * @date 2018/12/4 16:32
  */
 
+@Service
 public class OrderitemServiceImpl implements OrderitemService {
 
     private static final Logger logger = LoggerFactory.getLogger(OrderitemServiceImpl.class);
@@ -25,16 +28,19 @@ public class OrderitemServiceImpl implements OrderitemService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public List<Orderitem> getList() {
         return orderitemDAO.getList();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Orderitem> getListByOrder(String orderId) {
         return orderitemDAO.getListByOrder(orderId);
     }
 
     @Override
+    @Transactional
     public MessageVo addOrderitem(Orderitem orderitem) {
         MessageVo messageVo = new MessageVo();
         if (orderitemDAO.getListByOrder(orderitem.getOrderId()).size()!=0){
@@ -52,6 +58,7 @@ public class OrderitemServiceImpl implements OrderitemService {
     }
 
     @Override
+    @Transactional
     public MessageVo changeOrderitem(Orderitem orderitem) {
         MessageVo messageVo = new MessageVo();
         if (orderitemDAO.get(orderitem.getId()) == null){
@@ -69,6 +76,7 @@ public class OrderitemServiceImpl implements OrderitemService {
     }
 
     @Override
+    @Transactional
     public MessageVo deleteOrderitem(String id) {
         MessageVo messageVo = new MessageVo();
         Orderitem orderitem = orderitemDAO.get(id);

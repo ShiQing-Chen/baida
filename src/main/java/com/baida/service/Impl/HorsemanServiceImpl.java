@@ -9,6 +9,8 @@ import com.baida.vo.MessageVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +19,7 @@ import java.util.List;
  * @date 2018/12/4 16:32
  */
 
+@Service
 public class HorsemanServiceImpl implements HorsemanService {
 
     private static final Logger logger = LoggerFactory.getLogger(HorsemanServiceImpl.class);
@@ -26,21 +29,25 @@ public class HorsemanServiceImpl implements HorsemanService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public PagerList<Horseman> getListByPage(int pageNum) {
         return horsemanDAO.getListByPage(pageNum);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Horseman> getList() {
         return horsemanDAO.getList();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Horseman> getListByName(String manName) {
         return horsemanDAO.getListByName(manName);
     }
 
     @Override
+    @Transactional
     public MessageVo addHorseman(Horseman horseman) {
         MessageVo messageVo = new MessageVo();
         if (horsemanDAO.getListByName(horseman.getManName()).size()!=0){
@@ -58,6 +65,7 @@ public class HorsemanServiceImpl implements HorsemanService {
     }
 
     @Override
+    @Transactional
     public MessageVo changeHorseman(Horseman horseman) {
         MessageVo messageVo = new MessageVo();
         if (horsemanDAO.get(horseman.getId()) == null){
@@ -75,6 +83,7 @@ public class HorsemanServiceImpl implements HorsemanService {
     }
 
     @Override
+    @Transactional
     public MessageVo deleteHorseman(String id) {
         MessageVo messageVo = new MessageVo();
         Horseman horseman = horsemanDAO.get(id);

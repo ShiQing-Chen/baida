@@ -9,6 +9,8 @@ import com.baida.vo.MessageVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +19,7 @@ import java.util.List;
  * @date 2018/12/4 16:32
  */
 
+@Service
 public class GoodsclassServiceImpl implements GoodsclassService {
 
     private static final Logger logger = LoggerFactory.getLogger(GoodsclassServiceImpl.class);
@@ -26,41 +29,49 @@ public class GoodsclassServiceImpl implements GoodsclassService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public PagerList<Goodsclass> getListByPage(int pageNum) {
         return goodsclassDAO.getListByPage(pageNum);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Goodsclass> getList() {
         return goodsclassDAO.getList();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public PagerList<Goodsclass> getListByPageAndStatus(int pageNum, Integer classStatus) {
         return goodsclassDAO.getListByPageAndStatus(pageNum, classStatus);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Goodsclass> getListByStatus(Integer classStatus) {
         return goodsclassDAO.getListByStatus(classStatus);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Goodsclass> getListByName(String className) {
         return goodsclassDAO.getListByName(className);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public PagerList<Goodsclass> getListByPageAndShop(int pageNum, String shopId) {
         return goodsclassDAO.getListByPageAndShop(pageNum, shopId);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Goodsclass> getListByShop(String shopId) {
         return goodsclassDAO.getListByShop(shopId);
     }
 
     @Override
+    @Transactional
     public MessageVo addGoodsclass(Goodsclass goodsclass) {
         MessageVo messageVo = new MessageVo();
         goodsclass.setCreateTime(DateUtils.getNowTimestamp());
@@ -72,6 +83,7 @@ public class GoodsclassServiceImpl implements GoodsclassService {
     }
 
     @Override
+    @Transactional
     public MessageVo changeGoodsclass(Goodsclass goodsclass) {
         MessageVo messageVo = new MessageVo();
         if (goodsclassDAO.get(goodsclass.getId()) == null){
@@ -89,6 +101,7 @@ public class GoodsclassServiceImpl implements GoodsclassService {
     }
 
     @Override
+    @Transactional
     public MessageVo deleteGoodsclass(String id) {
         MessageVo messageVo = new MessageVo();
         Goodsclass goodsclass = goodsclassDAO.get(id);

@@ -9,6 +9,8 @@ import com.baida.vo.MessageVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +19,7 @@ import java.util.List;
  * @date 2018/12/4 16:31
  */
 
+@Service
 public class ActivityServiceImpl implements ActivityService{
 
     private static final Logger logger = LoggerFactory.getLogger(ActivityServiceImpl.class);
@@ -25,21 +28,25 @@ public class ActivityServiceImpl implements ActivityService{
     ActivityDAO activityDAO;
 
     @Override
+    @Transactional(readOnly = true)
     public PagerList<Activity> getListByPage(int pageNum) {
         return activityDAO.getListByPage(pageNum);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Activity> getList() {
         return activityDAO.getList();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Activity> getListByName(String activityTitle) {
         return activityDAO.getListByName(activityTitle);
     }
 
     @Override
+    @Transactional
     public MessageVo addActivity(Activity activity) {
         MessageVo messageVo = new MessageVo();
         activity.setCreateTime(DateUtils.getNowTimestamp());
@@ -51,6 +58,7 @@ public class ActivityServiceImpl implements ActivityService{
     }
 
     @Override
+    @Transactional
     public MessageVo changeActivity(Activity activity) {
         MessageVo messageVo = new MessageVo();
         if (activityDAO.get(activity.getId()) == null){
@@ -68,6 +76,7 @@ public class ActivityServiceImpl implements ActivityService{
     }
 
     @Override
+    @Transactional
     public MessageVo deleteActivity(String id) {
         MessageVo messageVo = new MessageVo();
         Activity activity = activityDAO.get(id);

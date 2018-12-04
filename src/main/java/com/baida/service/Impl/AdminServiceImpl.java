@@ -9,6 +9,8 @@ import com.baida.vo.MessageVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +19,7 @@ import java.util.List;
  * @date 2018/12/4 16:32
  */
 
+@Service
 public class AdminServiceImpl implements AdminService {
 
     private static final Logger logger = LoggerFactory.getLogger(AdminServiceImpl.class);
@@ -26,21 +29,25 @@ public class AdminServiceImpl implements AdminService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public PagerList<Admin> getListByPage(int pageNum) {
         return adminDAO.getListByPage(pageNum);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Admin> getList() {
         return adminDAO.getList();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Admin> getListByName(String adminName) {
         return adminDAO.getListByName(adminName);
     }
 
     @Override
+    @Transactional
     public MessageVo addAdmin(Admin admin) {
         MessageVo messageVo = new MessageVo();
         if (adminDAO.getListByName(admin.getAdminName()).size()!=0){
@@ -58,6 +65,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    @Transactional
     public MessageVo changeAdmin(Admin admin) {
         MessageVo messageVo = new MessageVo();
         if (adminDAO.get(admin.getId()) == null){
@@ -75,6 +83,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    @Transactional
     public MessageVo deleteAdmin(String id) {
         MessageVo messageVo = new MessageVo();
         Admin admin = adminDAO.get(id);

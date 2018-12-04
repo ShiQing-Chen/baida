@@ -10,6 +10,8 @@ import com.baida.vo.MessageVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,6 +20,7 @@ import java.util.List;
  * @date 2018/12/4 16:31
  */
 
+@Service
 public class AddressServiceImpl implements AddressService {
 
     private static final Logger logger = LoggerFactory.getLogger(AddressServiceImpl.class);
@@ -27,16 +30,19 @@ public class AddressServiceImpl implements AddressService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public PagerList<Address> getListByPage(int pageNum) {
         return addressDAO.getListByPage(pageNum);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Address> getList() {
         return addressDAO.getList();
     }
 
     @Override
+    @Transactional
     public MessageVo addAddress(Address address) {
         MessageVo messageVo = new MessageVo();
         address.setCreateTime(DateUtils.getNowTimestamp());
@@ -48,6 +54,7 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
+    @Transactional
     public MessageVo changeAddress(Address address) {
         MessageVo messageVo = new MessageVo();
         if (addressDAO.get(address.getId()) == null){
@@ -65,6 +72,7 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
+    @Transactional
     public MessageVo deleteAddress(String id) {
         MessageVo messageVo = new MessageVo();
         Address address = addressDAO.get(id);
