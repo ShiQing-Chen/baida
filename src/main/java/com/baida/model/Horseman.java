@@ -1,32 +1,60 @@
 package com.baida.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
  * @author ShiQing_Chen
- * @date 2018/11/26 12:01
+ * @date 2018/12/4 14:24
  */
 
+/** 骑手 */
 @Entity
 public class Horseman {
+
+    /** 骑手id */
     private String id;
+
+    /** 骑手名字 */
     private String manName;
+
+    /** 骑手状态 0为休息 1为工作 默认为0 */
     private Integer manStatus;
+
+    /** 骑手电话 */
     private String manPhone;
+
+    /** 接单数量 */
     private Integer takeoutNum;
-    private Double manMoney;
+
+    /** 完成订单数量 */
+    private Integer finishNum;
+
+    /** 接单金额 */
+    private Double manTakemoney;
+
+    /** 完成订单金额 */
+    private Double manFinishmoney;
+
+    /** 骑手描述 */
     private Timestamp manDesc;
+
+    /** 登录用户名 */
     private String manUser;
+
+    /** 登录密码 */
     private String manPassword;
+
+    /** 创建时间 */
     private Timestamp createTime;
+
+    /** 修改时间 */
     private Timestamp updateTime;
 
     @Id
-    @GenericGenerator(name = "generator", strategy = "uuid")
-    @GeneratedValue(generator = "generator")
     @Column(name = "ID", nullable = false, length = 36)
     public String getId() {
         return id;
@@ -77,13 +105,33 @@ public class Horseman {
     }
 
     @Basic
-    @Column(name = "MAN_MONEY", nullable = true, precision = 2)
-    public Double getManMoney() {
-        return manMoney;
+    @Column(name = "FINISH_NUM", nullable = true)
+    public Integer getFinishNum() {
+        return finishNum;
     }
 
-    public void setManMoney(Double manMoney) {
-        this.manMoney = manMoney;
+    public void setFinishNum(Integer finishNum) {
+        this.finishNum = finishNum;
+    }
+
+    @Basic
+    @Column(name = "MAN_TAKEMONEY", nullable = true, precision = 2)
+    public Double getManTakemoney() {
+        return manTakemoney;
+    }
+
+    public void setManTakemoney(Double manTakemoney) {
+        this.manTakemoney = manTakemoney;
+    }
+
+    @Basic
+    @Column(name = "MAN_FINISHMONEY", nullable = true, precision = 2)
+    public Double getManFinishmoney() {
+        return manFinishmoney;
+    }
+
+    public void setManFinishmoney(Double manFinishmoney) {
+        this.manFinishmoney = manFinishmoney;
     }
 
     @Basic
@@ -148,7 +196,11 @@ public class Horseman {
         if (manStatus != null ? !manStatus.equals(horseman.manStatus) : horseman.manStatus != null) return false;
         if (manPhone != null ? !manPhone.equals(horseman.manPhone) : horseman.manPhone != null) return false;
         if (takeoutNum != null ? !takeoutNum.equals(horseman.takeoutNum) : horseman.takeoutNum != null) return false;
-        if (manMoney != null ? !manMoney.equals(horseman.manMoney) : horseman.manMoney != null) return false;
+        if (finishNum != null ? !finishNum.equals(horseman.finishNum) : horseman.finishNum != null) return false;
+        if (manTakemoney != null ? !manTakemoney.equals(horseman.manTakemoney) : horseman.manTakemoney != null)
+            return false;
+        if (manFinishmoney != null ? !manFinishmoney.equals(horseman.manFinishmoney) : horseman.manFinishmoney != null)
+            return false;
         if (manDesc != null ? !manDesc.equals(horseman.manDesc) : horseman.manDesc != null) return false;
         if (manUser != null ? !manUser.equals(horseman.manUser) : horseman.manUser != null) return false;
         if (manPassword != null ? !manPassword.equals(horseman.manPassword) : horseman.manPassword != null)
@@ -166,7 +218,9 @@ public class Horseman {
         result = 31 * result + (manStatus != null ? manStatus.hashCode() : 0);
         result = 31 * result + (manPhone != null ? manPhone.hashCode() : 0);
         result = 31 * result + (takeoutNum != null ? takeoutNum.hashCode() : 0);
-        result = 31 * result + (manMoney != null ? manMoney.hashCode() : 0);
+        result = 31 * result + (finishNum != null ? finishNum.hashCode() : 0);
+        result = 31 * result + (manTakemoney != null ? manTakemoney.hashCode() : 0);
+        result = 31 * result + (manFinishmoney != null ? manFinishmoney.hashCode() : 0);
         result = 31 * result + (manDesc != null ? manDesc.hashCode() : 0);
         result = 31 * result + (manUser != null ? manUser.hashCode() : 0);
         result = 31 * result + (manPassword != null ? manPassword.hashCode() : 0);
@@ -183,7 +237,9 @@ public class Horseman {
                 ", manStatus=" + manStatus +
                 ", manPhone='" + manPhone + '\'' +
                 ", takeoutNum=" + takeoutNum +
-                ", manMoney=" + manMoney +
+                ", finishNum=" + finishNum +
+                ", manTakemoney=" + manTakemoney +
+                ", manFinishmoney=" + manFinishmoney +
                 ", manDesc=" + manDesc +
                 ", manUser='" + manUser + '\'' +
                 ", manPassword='" + manPassword + '\'' +
