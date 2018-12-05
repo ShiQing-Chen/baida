@@ -6,6 +6,7 @@ import com.baida.config.Constant;
 import com.baida.model.Order;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
  * @date 2018/12/3 18:52
  */
 
+@Repository
 public class OrderDAO extends HibernateDao<Order, String> {
 
     //分页查询

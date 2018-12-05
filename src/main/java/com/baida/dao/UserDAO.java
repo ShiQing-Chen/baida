@@ -6,6 +6,7 @@ import com.baida.config.Constant;
 import com.baida.model.User;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
  * @date 2018/12/3 18:53
  */
 
+@Repository
 public class UserDAO extends HibernateDao<User, String> {
 
     //分页查询

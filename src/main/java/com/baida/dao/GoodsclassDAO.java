@@ -7,6 +7,7 @@ import com.baida.model.Goodsclass;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * @date 2018/12/3 18:16
  */
 
+@Repository
 public class GoodsclassDAO extends HibernateDao<Goodsclass, String> {
 
 
